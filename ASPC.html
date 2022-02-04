@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+        body {
+            background-color: darkgrey;
+            /* padding: 5px; */
+        }
+
+        h1 {
+            color: darkred;
+            text-align: center;
+        }
+
+        p {
+            font-family: verdana;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        select {
+            color: green;
+            padding: 5px;
+        }
+    </style>
+
+    <title>
+        ASPC
+    </title>
+</head>
+
+
+<body>
+
+    <h1>The Ability Score Probability Calculator</h1>
+
+    <p class="center">Input your ability scores:</p>
+
+    <div id="ability_scores" class="center">
+        <!-- populate this via script-->
+    </div>
+
+    <br><br>
+
+    <div class="center">
+        <button id="calc_button" onclick="wrapper()">Calculate!</button>
+    </div>
+
+    <br><br>
+
+    <p> The probability of rolling these ability scores from 4d6k3 is about 1 in <span id="result_4d6k3"> [PRESS CALCULATE!]</span>. </p>
+
+    <script>
+        //On page load:
+        //create the ability score dropdown lists
+        var ability_scores = document.getElementById("ability_scores")
+        for (let i = 1; i <= 6; i++) {
+            var select = document.createElement("select")
+            ability_scores.appendChild(select)
+            select.id = "AS" + i //their ids will be like "AS1"
+
+            //add whitespace between the scores
+            var horiz_space = document.createElement("span")
+            ability_scores.appendChild(horiz_space)
+            horiz_space.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
+
+            //add the options
+            for (let j = 3; j <= 18; j++) {
+                option = document.createElement("option")
+                option.text = j
+                select.add(option)
+            }
+
+            select.selectedIndex = 10 //index of default score on page load
+        }
+
+        //Variables:
+        var score_array
+        var prob_4d6k3 = { 3: 0.08, 4: 0.31, 5: 0.77, 6: 1.62, 7: 2.93, 8: 4.78, 9: 7.02, 10: 9.41, 11: 11.42, 12: 12.89, 13: 13.27, 14: 12.35, 15: 10.11, 16: 7.25, 17: 4.17, 18: 1.62 }
+
+
+        function wrapper() {
+            read_scores()
+            var result_4d6k3 = compute_prob(prob_4d6k3)
+            // var result_3d6 = compute_prob(prob_3d6)
+
+            document.getElementById("result_4d6k3").innerHTML = Math.round(1/result_4d6k3)
+
+        }
+
+        function getAbilityScore(N) {
+            var X = document.getElementById("AS" + N)
+            var i = X.selectedIndex
+            return X.options[i].innerHTML
+        }
+
+        //read the user's scores into an array
+        function read_scores() {
+            score_array = []
+            for (let i = 0; i < 6; i++) {
+                score_array[i] = getAbilityScore(i + 1)
+            }
+        }
+
+        //computer the probability
+        //probability_table tells it which probablility lookup table to use. default is 4d6k3
+        function compute_prob(probability_table = prob_4d6k3) {
+            //initialize the repeat factors (there will bet *at most* 3 repeats in a set of six)
+            let r1 = 1
+            let r2 = 1
+            let r3 = 1
+
+            //set the repeat factors
+            for (let i = 3; i <= 18; i++) {
+                let quantity = count(score_array, i)
+                if (quantity > 1) {
+                    r3 = r2
+                    r2 = r1
+
+                    r1 = quantity
+                }
+            }
+
+            //now actually calculate
+            let result = 1
+            for (let i = 0; i < 6; i++) {
+                result *= probability_table[score_array[i]] / 100
+            }
+            result *= factorial(6)
+            result /= factorial(r1)
+            result /= factorial(r2)
+            result /= factorial(r3)
+
+            return result //note: this is raw value, NOT expressed as a percentage
+        }
+
+        function factorial(n) {
+            if (n == 0) {
+                return 1
+            }
+            return factorial(n - 1) * n
+        }
+
+        //count the number of X in an array
+        function count(array, X) {
+            let out = 0
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] == X) {
+                    out++
+                }
+            }
+            return out
+        }
+
+    </script>
+</body>
+</html>
