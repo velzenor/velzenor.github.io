@@ -1,0 +1,685 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{fancyvrb}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.5cm
+\rightmargin 0.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Mathematical Explanation
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The equation for the probability to roll a particular set of six numbers
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{P}_{set}=\frac{6!}{\left(r_{1}\right)!\left(r_{2}\right)!\left(r_{3}\right)!}\prod_{i=1}^{6}P\left(n_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\left\{ n_{1},n_{2},n_{3},n_{4},n_{5},n_{6}\right\} $
+\end_inset
+
+ denote the six numbers rolled, 
+\begin_inset Formula $P(n_{i})$
+\end_inset
+
+ denotes the 
+\emph on
+independent 
+\emph default
+probably to obtain number 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+, and 
+\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} $
+\end_inset
+
+ are factors that I'll call "repeating factors".
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Statistical Mechanics
+\end_layout
+
+\begin_layout Standard
+In general, to obtain the total probability of something being in a certain
+ "state", you need to count the total number of "microstates" that result
+ in that state (or rather that "macrostate").
+ The probability for your system to be in a particular macrostate is then
+ just the number of microstates resulting in that macrostate divided by
+ the total number of all possible microstates your system can be in.
+ This fact arises from the fundamental axiom of statistical mechanics: all
+ accessbile microstates are equally likely (which, in a way, is how you
+ can define what a 
+\begin_inset Quotes eld
+\end_inset
+
+microstate
+\begin_inset Quotes erd
+\end_inset
+
+ is).
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, suppose I am flipping a coin twice and tracking the total number
+ of times I get tails.
+\end_layout
+
+\begin_layout Standard
+I'll choose to define my macrostates based on how many tails I get.
+\end_layout
+
+\begin_layout Standard
+In this example there are 3 macrostates: I get 2 tails, 1 tails, or no tails.
+\end_layout
+
+\begin_layout Standard
+However, there are 4 total microstates for this system:
+\end_layout
+
+\begin_layout Standard
+tails first then another tails 
+\begin_inset Formula $\left[T,T\right]$
+\end_inset
+
+, tails first then heads 
+\begin_inset Formula $\left[T,H\right]$
+\end_inset
+
+, heads first then tails 
+\begin_inset Formula $\left[H,T\right]$
+\end_inset
+
+, heads first then another heads 
+\begin_inset Formula $\left[H,H\right]$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You may have noticed that some of these outcomes will amount to the same
+ number of tails (ex: 
+\begin_inset Formula $\left[T,H\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $\left[H,T\right]$
+\end_inset
+
+).
+ However, even though they are the same in terms of what I said I was tracking
+ (ie in terms of the 
+\begin_inset Quotes eld
+\end_inset
+
+macrostate
+\begin_inset Quotes erd
+\end_inset
+
+ as I have chosen to define it), each of these outcomes really represents
+ two distinct realities.
+ In one, I flipped and got heads first.
+ In the other, I got tails first then heads.
+ They are different scenarios.
+ This is exactly the concept this example is meant to show.
+ Different 
+\begin_inset Quotes eld
+\end_inset
+
+microstates
+\begin_inset Quotes erd
+\end_inset
+
+ can correspond to the same 
+\begin_inset Quotes eld
+\end_inset
+
+macrostate
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To summarize, each microstate corresponds to a macrostate like so:
+\end_layout
+
+\begin_layout Standard
+2 tails: 
+\begin_inset Formula $\left[T,T\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1 tail: 
+\begin_inset Formula $\left[T,H\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\left[H,T\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+0 tails: 
+\begin_inset Formula $\left[H,H\right]$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because there is 1 microstate (out of 4) that corresponds to getting 
+\begin_inset Quotes eld
+\end_inset
+
+2 tails
+\begin_inset Quotes erd
+\end_inset
+
+, the odds of getting 2 tails is 
+\begin_inset Formula $\frac{1}{4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Because there is 2 microstate (out of 4) that corresponds to getting 
+\begin_inset Quotes eld
+\end_inset
+
+1 tails
+\begin_inset Quotes erd
+\end_inset
+
+, the odds of getting 1 tails is 
+\begin_inset Formula $\frac{2}{4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+And because there is 1 microstate (out of 4) that corresponds to getting
+ 
+\begin_inset Quotes eld
+\end_inset
+
+0 tails
+\begin_inset Quotes erd
+\end_inset
+
+, the odds of getting no tails is 
+\begin_inset Formula $\frac{1}{4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So in summary...
+\begin_inset Formula 
+\[
+P\left(2\;tails\right)=0.25
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P\left(1\;tails\right)=0.5
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P\left(0\;tails\right)=0.25
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Counting Microstates
+\end_layout
+
+\begin_layout Standard
+In summary to last section, each macrostate can have multiple microstates
+ and we need to know how many microstates there are and to which macrostates
+ they correspond to in order to find probabilities.
+\end_layout
+
+\begin_layout Standard
+Going back to ability scores: if we take, for example, 
+\begin_inset Formula $\left[9,10,11,12,13,16\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $\left[12,9,13,11,10,16\right]$
+\end_inset
+
+.
+ These sets of scores are two different microstates corresponding to the
+ same macrostate (because, like in D&D, we'll say that the order in which
+ you roll the numbers doesn't matter).
+ Really, each rearranging of these 6 numbers is a seperate microstate for
+ the same macrostate.
+ So, we should ask: how many different ways can we rearrange a set of six
+ numbers.
+ It turns out the answer is the factorial of 6.
+\end_layout
+
+\begin_layout Standard
+Based on this, you might think that the equation for the probability to
+ get a macrostate is
+\begin_inset Formula 
+\[
+"\boldsymbol{P}_{set}=6!\prod_{i=1}^{6}P\left(n_{i}\right)"
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+but it turns out, that is incorrect.
+ Because there isn't 
+\emph on
+always 
+\emph default
+6! ways to rearrange a set of six number; 6! is just the maximum.
+ It is less if there are repeating numbers.
+\end_layout
+
+\begin_layout Standard
+As an extreme case, take for example the set 
+\begin_inset Formula $\left[13,13,13,13,13,13\right]$
+\end_inset
+
+.
+ If we ask: 
+\begin_inset Quotes eld
+\end_inset
+
+how many ways are there to roll six 13s?
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The answer is, of course, one.
+ There is only one way to roll six 13s: you roll them one after the other
+ until you get six of them.
+ In other words, this macrostate has only 1 microstate.
+\end_layout
+
+\begin_layout Standard
+What about 
+\begin_inset Formula $\left\{ 9,13,13,13,13,13\right\} $
+\end_inset
+
+? Well, there are six ways to roll this set of numbers; one for each position
+ in which the 
+\begin_inset Quotes eld
+\end_inset
+
+9
+\begin_inset Quotes erd
+\end_inset
+
+ can be in.
+\end_layout
+
+\begin_layout Standard
+It turns out the number of ways you can roll a set with repeating numbers
+ is equal to
+\begin_inset Formula 
+\[
+\frac{6!}{r!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $r$
+\end_inset
+
+ is the amount of repeated numbers in your set.
+ You can check with the previous two cases that this now gives the correct
+ answers (
+\begin_inset Formula $\frac{6!}{6!}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{6!}{5!}=6$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+The Repeating Factors
+\end_layout
+
+\begin_layout Standard
+In a set of 6 numbers, there can be (at most) 3 subsets of repeating numbers
+ (ie the case where you have 3 repeats of twos, like 
+\begin_inset Formula $\left\{ 5,5,7,7,14,14\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+You need to divide by 
+\begin_inset Formula $r!$
+\end_inset
+
+ (a 
+\begin_inset Quotes eld
+\end_inset
+
+repeating factor
+\begin_inset Quotes erd
+\end_inset
+
+) for each of these repeats.
+\end_layout
+
+\begin_layout Standard
+So the 
+\begin_inset Quotes eld
+\end_inset
+
+number of ways you can rearrange
+\begin_inset Quotes erd
+\end_inset
+
+, which we know is really also the number of microstates for the same macrostate
+, is equal to
+\begin_inset Formula 
+\[
+\Omega=\begin{cases}
+\frac{6!}{\left(r_{1}\right)!} & \text{if there is 1 repeat}\\
+\frac{6!}{\left(r_{1}\right)!\left(r_{2}\right)!} & \text{if there are 2 repeats}\\
+\frac{6!}{\left(r_{1}\right)!\left(r_{2}\right)!\left(r_{3}\right)!} & \text{if there are 3 repeats}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In pseudocode, this can be computed like so
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[h]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{BVerbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+r1,r2,r3 = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for i=3..18 {
+\end_layout
+
+\begin_layout Plain Layout
+
+	r = Number_Set.count(i) //count the amount of i in the number set
+\end_layout
+
+\begin_layout Plain Layout
+
+	if r > 1 {
+\end_layout
+
+\begin_layout Plain Layout
+
+		r3 = r2
+\end_layout
+
+\begin_layout Plain Layout
+
+		r2 = r1
+\end_layout
+
+\begin_layout Plain Layout
+
+		r1 = r
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Omega = 6! / r1! / r2! / r3!
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{BVerbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
